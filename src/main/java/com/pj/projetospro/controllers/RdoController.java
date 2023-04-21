@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/rdo")
@@ -26,5 +27,14 @@ public class RdoController {
     @GetMapping()
     public ResponseEntity<List<Rdo>> getRdos() {
         return ResponseEntity.status(HttpStatus.OK).body(rdoService.getRdos());
+    }
+
+    @GetMapping("/rdodate")
+    public ResponseEntity<List<Rdo>> getRdosBydate(@RequestParam String dia, @RequestParam String mes) {
+        Rdo rdo = new Rdo();
+        rdo.setDia(dia);
+        rdo.setMes(mes);
+        rdo.setNome("Joao");
+        return ResponseEntity.status(HttpStatus.OK).body(rdoService.getRdosByDayAndMounth(dia, mes));
     }
 }

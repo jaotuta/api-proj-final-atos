@@ -27,4 +27,8 @@ public class RdoService {
     public List<Rdo> getRdos() {
         return rdoRepository.findAll();
     }
+
+    public List<Rdo> getRdosByDayAndMounth(String dia, String mes) {
+        return rdoRepository.findAllByDiaAndMes( dia,  mes);
+    }
 }
