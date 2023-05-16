@@ -1,5 +1,6 @@
 package com.pj.projetospro.dtos;
 
+import com.pj.projetospro.models.Projetos;
 import lombok.Data;
 
 import java.util.UUID;
@@ -12,5 +13,6 @@ public class RdoRequest {
     private String descricao;
     private String dia;
     private String mes;
+    private String projetoId;
 
 }

@@ -9,6 +9,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 
@@ -30,5 +31,17 @@ public class RdoService {
 
     public List<Rdo> getRdosByDayAndMounth(String dia, String mes) {
         return rdoRepository.findAllByDiaAndMes( dia,  mes);
+    }
+
+    public Optional<Rdo> getRdoByid(UUID id) {
+        return rdoRepository.findById(id);
+    }
+
+    public List<Rdo> getRdosByProjeto(String dia, String mes, String projetoId) {
+        return rdoRepository.findAllByDiaAndMesAndProjetoId(dia, mes, projetoId);
+    }
+
+    public void removeRdoByid(UUID id) {
+        rdoRepository.deleteById(id);
     }
 }

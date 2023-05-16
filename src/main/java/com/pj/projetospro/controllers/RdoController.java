@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -29,12 +30,22 @@ public class RdoController {
         return ResponseEntity.status(HttpStatus.OK).body(rdoService.getRdos());
     }
 
+    @GetMapping("/rdo-proj/{id}")
+    public ResponseEntity<List<Rdo>> getByProjeto(@RequestParam String dia, @RequestParam String mes, @PathVariable String id) {
+        return ResponseEntity.status(HttpStatus.OK).body(rdoService.getRdosByProjeto(dia, mes, id));
+    }
+
     @GetMapping("/rdodate")
     public ResponseEntity<List<Rdo>> getRdosBydate(@RequestParam String dia, @RequestParam String mes) {
-        Rdo rdo = new Rdo();
-        rdo.setDia(dia);
-        rdo.setMes(mes);
-        rdo.setNome("Joao");
         return ResponseEntity.status(HttpStatus.OK).body(rdoService.getRdosByDayAndMounth(dia, mes));
+    }
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Rdo>> getRdosById(@PathVariable UUID id) {
+        return ResponseEntity.status(HttpStatus.OK).body(rdoService.getRdoByid(id));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity removeRdosById(@PathVariable UUID id) {
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body("removed");
     }
 }
