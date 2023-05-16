@@ -2,9 +2,9 @@ spring:
   application:
     name: produto-market
   datasource:
-    username: nbbdmeoc
-    url: jdbc:postgresql://babar.db.elephantsql.com/nbbdmeoc
-    password: 3hAqpsbwYZghTIWOqX9ptjnLTnrOPGZ4
+    username: ktkhwwsu
+    url: jdbc:postgresql://kesavan.db.elephantsql.com/ktkhwwsu
+    password: 4J5V6VDI31ZXcHhbNzuvl4_vsnWbApJ-
   jpa:
     database: POSTGRESQL
     properties:
