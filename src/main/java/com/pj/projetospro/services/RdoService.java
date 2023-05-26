@@ -23,7 +23,9 @@ public class RdoService {
         return rdoRepository.save(rdo);
 
     }
-
+    public Object updateRdo(Rdo rdo) {
+        return rdoRepository.save(rdo);
+    }
     public List<Rdo> getRdos() {
         return rdoRepository.findAll();
     }

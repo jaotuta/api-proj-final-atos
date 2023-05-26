@@ -24,7 +24,10 @@ public class RdoController {
     public ResponseEntity<Object> novoRdo(@RequestBody RdoRequest rdoRequest) {
         return ResponseEntity.status(HttpStatus.CREATED).body(rdoService.novoRdo(rdoRequest));
     }
-
+    @PutMapping("/update")
+    public ResponseEntity<Object> updateRdo(@RequestBody Rdo rdo) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(rdoService.updateRdo(rdo));
+    }
     @GetMapping()
     public ResponseEntity<List<Rdo>> getRdos() {
         return ResponseEntity.status(HttpStatus.OK).body(rdoService.getRdos());
