@@ -41,6 +41,4 @@ public class ProjetosController {
         ResponseEntity.status(HttpStatus.OK).body(projetosServices.removeProjeto(id));
     }
 
-
-
 }
