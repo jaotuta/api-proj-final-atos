@@ -47,6 +47,6 @@ public class RdoController {
     @DeleteMapping("/{id}")
     public ResponseEntity removeRdosById(@PathVariable UUID id) {
         rdoService.removeRdoByid(id);
-        return ResponseEntity.status(HttpStatus.ACCEPTED).body("removed");
+        return (ResponseEntity) ResponseEntity.status(HttpStatus.ACCEPTED);
     }
 }
