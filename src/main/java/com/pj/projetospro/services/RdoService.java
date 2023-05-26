@@ -2,7 +2,6 @@ package com.pj.projetospro.services;
 
 import com.pj.projetospro.dtos.RdoRequest;
 import com.pj.projetospro.models.Rdo;
-import com.pj.projetospro.repository.ProjetoRepository;
 import com.pj.projetospro.repository.RdoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -41,7 +40,10 @@ public class RdoService {
         return rdoRepository.findAllByDiaAndMesAndProjetoId(dia, mes, projetoId);
     }
 
-    public void removeRdoByid(UUID id) {
+    public Optional<Rdo> removeRdoByid(UUID id) {
+        Optional<Rdo> rdo = Optional.of(new Rdo());
+        rdo = rdoRepository.findById(id);
         rdoRepository.deleteById(id);
+        return rdo;
     }
 }
