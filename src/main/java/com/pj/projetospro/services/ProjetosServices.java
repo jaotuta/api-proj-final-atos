@@ -1,7 +1,6 @@
 package com.pj.projetospro.services;
 
 import com.pj.projetospro.dtos.ProjetoRequest;
-import com.pj.projetospro.dtos.ProjetoResponse;
 import com.pj.projetospro.models.Projetos;
 import com.pj.projetospro.repository.ProjetoRepository;
 import lombok.RequiredArgsConstructor;
@@ -10,8 +9,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
-import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -33,12 +30,12 @@ public class ProjetosServices {
         return projetoRepository.findAllByFlag(flag, pageable);
     }
 
-
-
     public String removeProjeto(UUID id) {
         projetoRepository.deleteById(id);
         return "Projeto removido";
     }
-
+    public Optional<Projetos> getProjetoById(UUID id) {
+        return projetoRepository.findById(id);
+    }
 
 }

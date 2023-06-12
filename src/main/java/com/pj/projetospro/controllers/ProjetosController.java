@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 @RestController
@@ -29,7 +30,10 @@ public class ProjetosController {
                                                        @RequestParam(required = false) String flag) {
         return ResponseEntity.status(HttpStatus.OK).body(projetosServices.buscarTodos(pageable, flag));
     }
-
+    @GetMapping("/{id}")
+    public ResponseEntity<Optional<Projetos>> getProjById (@PathVariable UUID id) {
+        return ResponseEntity.status(HttpStatus.OK).body(projetosServices.getProjetoById(id));
+    }
 
     @PostMapping("/novo")
     public ResponseEntity<Projetos> novoProjeto (@RequestBody ProjetoRequest projetoRequest) {
