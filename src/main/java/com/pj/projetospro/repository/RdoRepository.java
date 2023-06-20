@@ -13,5 +13,5 @@ import java.util.UUID;
 public interface RdoRepository extends JpaRepository<Rdo, UUID> {
     List<Rdo> findAllByDiaAndMes(String dia, String mes);
     List<Rdo> findAllByDiaAndMesAndProjetoId (String dia, String mes, String projetoId);
-
+    List<Rdo> findAllByProjetoId (String projetoId);
 }

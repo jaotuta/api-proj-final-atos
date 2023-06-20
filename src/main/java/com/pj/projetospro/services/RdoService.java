@@ -41,7 +41,9 @@ public class RdoService {
     public List<Rdo> getRdosByProjeto(String dia, String mes, String projetoId) {
         return rdoRepository.findAllByDiaAndMesAndProjetoId(dia, mes, projetoId);
     }
-
+    public List<Rdo> getRdosByProjetoId(String projetoId) {
+        return rdoRepository.findAllByProjetoId(projetoId);
+    }
     public Optional<Rdo> removeRdoByid(UUID id) {
         Optional<Rdo> rdo = Optional.of(new Rdo());
         rdo = rdoRepository.findById(id);

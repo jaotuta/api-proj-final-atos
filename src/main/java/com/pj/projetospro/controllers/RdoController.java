@@ -37,7 +37,10 @@ public class RdoController {
     public ResponseEntity<List<Rdo>> getByProjeto(@RequestParam String dia, @RequestParam String mes, @PathVariable String id) {
         return ResponseEntity.status(HttpStatus.OK).body(rdoService.getRdosByProjeto(dia, mes, id));
     }
-
+    @GetMapping("/rdo-projId/{id}")
+    public ResponseEntity<List<Rdo>> getRdoByProjeto(@PathVariable String id) {
+        return ResponseEntity.status(HttpStatus.OK).body(rdoService.getRdosByProjetoId(id));
+    }
     @GetMapping("/rdodate")
     public ResponseEntity<List<Rdo>> getRdosBydate(@RequestParam String dia, @RequestParam String mes) {
         return ResponseEntity.status(HttpStatus.OK).body(rdoService.getRdosByDayAndMounth(dia, mes));
