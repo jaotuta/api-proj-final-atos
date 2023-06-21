@@ -26,7 +26,7 @@ public class ProjetosController {
     final ProjetosServices projetosServices;
 
     @GetMapping()
-    public ResponseEntity<Page<Projetos>> buscarTodos (@PageableDefault(page = 0, size = 20) Pageable pageable) {
+    public ResponseEntity<Page<Projetos>> buscarTodos (@PageableDefault(page = 0, size = 20, sort = "dataStart", direction = Sort.Direction.DESC) Pageable pageable) {
         return ResponseEntity.status(HttpStatus.OK).body(projetosServices.buscarTodos(pageable));
     }
 
