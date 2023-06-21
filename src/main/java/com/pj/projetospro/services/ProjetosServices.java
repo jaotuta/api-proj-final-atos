@@ -26,8 +26,8 @@ public class ProjetosServices {
         return projeto;
     }
 
-    public Page<Projetos> buscarTodos(Pageable pageable, String flag) {
-        return projetoRepository.findAllByFlag(flag, pageable);
+    public Page<Projetos> buscarTodos(Pageable pageable) {
+        return projetoRepository.findAll(pageable);
     }
 
     public String removeProjeto(UUID id) {

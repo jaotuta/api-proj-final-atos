@@ -26,10 +26,17 @@ public class ProjetosController {
     final ProjetosServices projetosServices;
 
     @GetMapping()
-    public ResponseEntity<Page<Projetos>> buscarTodos (@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
-                                                       @RequestParam(required = false) String flag) {
-        return ResponseEntity.status(HttpStatus.OK).body(projetosServices.buscarTodos(pageable, flag));
+    public ResponseEntity<Page<Projetos>> buscarTodos (@PageableDefault(page = 0, size = 20) Pageable pageable) {
+        return ResponseEntity.status(HttpStatus.OK).body(projetosServices.buscarTodos(pageable));
     }
+
+    @GetMapping()
+    public ResponseEntity<Page<Projetos>> buscarTodosComFlag (@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
+                                                       @RequestParam(required = false) String flag) {
+        //return ResponseEntity.status(HttpStatus.OK).body(projetosServices.buscarTodos(pageable, flag));
+        return null;
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Optional<Projetos>> getProjById (@PathVariable UUID id) {
         return ResponseEntity.status(HttpStatus.OK).body(projetosServices.getProjetoById(id));
