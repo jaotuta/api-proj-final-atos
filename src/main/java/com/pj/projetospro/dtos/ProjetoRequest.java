@@ -6,5 +6,6 @@ import lombok.Data;
 public class ProjetoRequest {
     private String nome;
     private String empresa;
+    private String flag;
 
 }
