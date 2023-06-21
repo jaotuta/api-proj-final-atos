@@ -30,7 +30,7 @@ public class ProjetosController {
         return ResponseEntity.status(HttpStatus.OK).body(projetosServices.buscarTodos(pageable));
     }
 
-    @GetMapping()
+    @GetMapping("/with-flag")
     public ResponseEntity<Page<Projetos>> buscarTodosComFlag (@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.ASC) Pageable pageable,
                                                        @RequestParam(required = false) String flag) {
         //return ResponseEntity.status(HttpStatus.OK).body(projetosServices.buscarTodos(pageable, flag));
