@@ -1,6 +1,7 @@
 package com.pj.projetospro.models;
 
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -19,8 +20,9 @@ public class Projetos {
     @Column
     private String empresa;
     @Column
-    private String flag = "andamento";
+    private String flag;
     @Column
+    @CreationTimestamp
     private Date dataStart;
 
 }
